@@ -7,7 +7,7 @@
     <script src="js/jquery-3.3.1.js" type="text/javascript"></script>
     <script src="js/bootstrap.bundle.js" type="text/javascript"></script>
     <script src="js/scripts.js" type="text/javascript"></script>
-    <title>Cipher Utility</title>
+    <title>Beep Boop</title>
   </head>
 
   <body>
@@ -32,14 +32,33 @@
             <li>Numbers that contain a 2: all digits are replaced (all digits) with "Boop!"</li>
             <li>Numbers that contain a 3: all digits are replaced (all digits) with "I'm sorry, Dave. I'm afraid I can't do that."</li>
           </ol>
-          <h1>Enter your Text Here:</h1>
-          <form class="" >
-            <label for="number"></label>
-            <input type="text" name="number" value="">
+          <form id="formInput">
+            <div class="form-group">
+              <label for="number-input">Enter your number here:</label>
+              <input id="number-input"type="text" name="number" value="">
+            </div>
           </form>
           <button type="submit" name="btn-submit">Submit</button>
         </div>
+        <div class="col-md-2">
+        </div>
       </div>
+
+      <div class="row display-title">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-8">
+            <h2>Your result is:</h2>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+
+        <div class="row" id="split-results">
+        </div>
+
+
+
     </div> <!-- Close main container -->
 
 
