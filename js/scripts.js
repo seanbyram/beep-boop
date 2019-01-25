@@ -2,19 +2,19 @@
 
 function beepboop(number) {
 
-  answers = [];
+  answer = [];
   for(i = 1; i <= number; i++) {
     if (i === 3) {
-      result.push(" sorry dave");
-    } else if (number.includes(2)) {
-      result.push("boop");
-    } else if (number.includes(1)) {
-      result.push("beep");
+      answer.push(" sorry dave");
+    } else if (i === 2) {
+      answer.push("boop");
+    } else if (i === 1) {
+      answer.push("beep");
     } else {
-    result.push(i);
+    answer.push(i);
     }
   };
-  return answers;
+  return answer;
 };
 
 
@@ -39,19 +39,38 @@ $(document).ready(function() {
   $("form#formInput").submit(function(event) {
 
     event.preventDefault();
+    $("#split-answers").empty();
+    $(".error-message").hide();
 
-    var number = $("#number-input").val();
+    var inputNumber = parseInt($("input").val());
 
-    beepboop(number);
+    if (inputNumber <= 0) {
+     $(".error-message").show();
+     $("#error-message").text("Please use only positive numbers");
+   } else if (inputNumber > 100){
+      beepboop(inputNumber);
+      $(".display-title").show();
+      $("#split-answers").append("<div class='col-md-2'></div>");
 
+      var columnLimit = Math.ceil(inputNumber/8);
 
+      for (var i = 0; i < inputNumber; i+=columnLimit) {
+        var section = answer.slice(i, i+columnLimit);
 
+        showAnswers(section);
+
+        $("#split-answers").append("<div class='col-md-1'><span id='display-"+[i]+"'  class='display-answers'></span></div>");
+
+        $("#display-answers" + [i]).append(listAnswers);
+      };
+      $("#split-answers").append("<div class='col-md-2'></div>").fadeIn();
+    } else {
+        beepboop(inputNumber);
+        $(".display-title").show();
+        $("#split-answers").append("<div class='col-md-2'></div>");
+        showAnswers(result);
+        $("#split-answers").append("<div class='col-md-1'><span id='display-'  class='display-'></span></div>");
+        $("#display-answers").append(listAnswers).slideDown();
+    }
   });
-
-
-
-
-
-
-
 });
