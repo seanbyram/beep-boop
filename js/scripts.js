@@ -1,20 +1,34 @@
 // Business Logic
-var number = "";
+
 function beepboop(number) {
 
-  result = "";
-  for(i = 1; i <= number; i++)
-    if (number.includes(3)) {
-      $("#result").append(" sorry dave");
+  answers = [];
+  for(i = 1; i <= number; i++) {
+    if (i === 3) {
+      result.push(" sorry dave");
     } else if (number.includes(2)) {
-      console.log("boop");
+      result.push("boop");
     } else if (number.includes(1)) {
-      console.log("beep");
+      result.push("beep");
     } else {
-      console.log(number);
+    result.push(i);
     }
-}
+  };
+  return answers;
+};
 
+
+function showAnswers(answers) {
+
+    listAnswers = document.createElement('ul');
+
+      for (var i = 0; i < answers.length; i++) {
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(answers[i]));
+        listAnswers.appendChild(li);
+      }
+      return listAnswers;
+};
 
 
 
@@ -34,55 +48,10 @@ $(document).ready(function() {
 
   });
 
-  if (inputNumber <= 0) {
-       $(".error-message").show();
-       $("#error-message").text("Please use only positive numbers");
-     } else if (inputNumber > 100){
-        beepboop(inputNumber);
-        $(".display-title").show();
-        $("#split-results").append("<div class='col-md-2'></div>");
 
-        var columnLimit = Math.ceil(inputNumber/8);
 
-        for (var i = 0; i < inputNumber; i+=columnLimit) {
-          var section = result.slice(i, i+columnLimit);
-
-          displayResults(section);
-
-          $("#split-results").append("<div class='col-md-1'><span id='display-results"+[i]+"'  class='display-results'></span></div>");
-
-          $("#display-results" + [i]).append(listResults);
-        };
-        $("#split-results").append("<div class='col-md-2'></div>").fadeIn();
-      } else {
-          beepboop(inputNumber);
-          $(".display-title").show();
-          $("#split-results").append("<div class='col-md-2'></div>");
-          displayResults(result);
-          $("#split-results").append("<div class='col-md-1'><span id='display-results'  class='display-results'></span></div>");
-          $("#display-results").append(listResults).slideDown();
-      }
-    });
-  });
 
 
 
 
 });
-
-
-
-
-//
-// $("#split-results").empty();
-//
-// var inputNumber = $("input").val();
-//
-// if (inputNumber <= 0) {
-//  $(".error-message").show();
-//  $("#error-message").text("Please use only positive numbers");
-// } else if (inputNumber > 100){
-// beepboop(inputNumber);
-// $(".display-title").show();
-// $("#split-results").append("<div class='col-md-2'></div>");
-// }
