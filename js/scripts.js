@@ -3,12 +3,12 @@
 function beepboop(number) {
 
   answer = [];
-  for(i = 1; i <= number; i++) {
+  for(var i = 1; i <= number; i ++) {
     if (i === 3) {
       answer.push(" sorry dave");
     } else if (i === 2) {
       answer.push("boop");
-    } else if (i === 1) {
+    } else if (i === 3) {
       answer.push("beep");
     } else {
     answer.push(i);
@@ -16,7 +16,6 @@ function beepboop(number) {
   };
   return answer;
 };
-
 
 function showAnswers(answers) {
 
@@ -29,8 +28,6 @@ function showAnswers(answers) {
       }
       return listAnswers;
 };
-
-
 
 // User Interface Logic
 
@@ -68,8 +65,8 @@ $(document).ready(function() {
         beepboop(inputNumber);
         $(".display-title").show();
         $("#split-answers").append("<div class='col-md-2'></div>");
-        showAnswers(result);
-        $("#split-answers").append("<div class='col-md-1'><span id='display-'  class='display-'></span></div>");
+        showAnswers(answer);
+        $("#split-answers").append("<div class='col-md-1'><span id='display-answers'  class='display-answers'></span></div>");
         $("#display-answers").append(listAnswers).slideDown();
     }
   });

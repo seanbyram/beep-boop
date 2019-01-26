@@ -37,9 +37,12 @@
               <label for="number-input">Enter your number here:</label>
               <input id="number-input"type="text" name="number" value="">
             </div>
-            <button type="submit" name="btn-submit">Submit</button>
+            <div class="alert alert-danger error-message" role="alert">
+              <span class="sr-only">Error:</span>
+              <span id="error-message"></span>
+            </div>
+            <button type="submit" class="btn" name="btn-submit">Submit</button>
           </form>
-
         </div>
         <div class="col-md-2">
         </div>
@@ -49,20 +52,15 @@
           <div class="col-md-2">
           </div>
           <div class="col-md-8">
-            <h2 id="result">Your result is:</h2>
+            <h2>Your result is:</h2>
           </div>
           <div class="col-md-2">
           </div>
         </div>
 
-        <div class="row" id="split-results">
+        <div class="row" id="split-answers">
         </div>
-
-        <footer>add content here for contact info</footer>
-
-
-    </div> <!-- Close main container -->
-
+      </div> 
 
   </body>
 
